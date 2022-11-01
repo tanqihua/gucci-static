@@ -35,7 +35,15 @@ const Preload = (props: Props) => {
         window.setPreloadFlag = setPreloadFlag;
 
         if (props.toggle) {
-            setLanguage("eng");
+            let language = localStorage.getItem("language");
+            console.log("language", language);
+            if (language) {
+                setLanguage(language);
+            }
+            else {
+                setLanguage("eng");
+            }
+
             setPreloadFlag.on()
         }
 

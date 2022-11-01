@@ -63,7 +63,7 @@ const Popup = (props: Props) => {
             >
                 <Box
                     backgroundImage={currentAudio?.cover}
-                    backgroundColor={"white"}
+                    backgroundColor={"rgb(228, 151, 166)"}
                     backgroundSize={"cover"}
                     backgroundPosition={"center"}
                     borderRadius={"10%"}
