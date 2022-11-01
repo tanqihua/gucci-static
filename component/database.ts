@@ -153,7 +153,7 @@ export const dataChi: any = {
         key: "room-5",
     },
     "room-6": {
-        room: "房间 4",
+        room: "房间 6",
         title: "宠儿脱口秀",
         mainTitle: "宠儿脱口秀",
         cover: "/img/room/Talkshow.jpg",
