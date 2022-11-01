@@ -30,6 +30,10 @@ const Preload = (props: Props) => {
 
     const [allLoaded, setAllLoaded] = React.useState(false);
     const [trigger, setTrigger] = React.useState(props.toggle);
+
+
+    const [animationImage, setAnimationImage] = useBoolean(true);
+
     React.useEffect(() => {
         // @ts-ignore
         window.setPreloadFlag = setPreloadFlag;
@@ -49,6 +53,9 @@ const Preload = (props: Props) => {
 
             setPreloadFlag.on()
         }
+        setTimeout(() => {
+            setAnimationImage.off();
+        }, 1500)
     }, [])
 
     if (allLoaded) {
@@ -130,39 +137,45 @@ const Preload = (props: Props) => {
                 height={windowDimensions.height * 0.45}
                 alignItems="flex-start"
             >
-                <Box
-                    textAlign={"center"}
-                >
-                    <Heading
-                        fontSize={"1rem"}
-                        color={"black"}
-                    >
-                        Gucci Garden
-                        <br />
-                        Archetypes
-                    </Heading>
-                    <Box height={windowDimensions.height * 0.07} />
-                    <Heading
-                        fontSize={"1rem"}
-                        color={"black"}
-                        onClick={() => {
-                            setLanguage("eng");
-                            localStorage.setItem("language", "eng");
-                            setPreloadFlag.toggle()
-                        }}
-                    >English</Heading>
-                    <Box height={windowDimensions.height * 0.03} />
-                    <Heading
-                        fontSize={"1rem"}
-                        color={"black"}
-                        onClick={() => {
-                            // @ts-ignore
-                            setLanguage("chi");
-                            localStorage.setItem("language", "chi");
-                            setPreloadFlag.toggle()
-                        }}
-                    >中文</Heading>
-                </Box>
+                {
+                    animationImage ?
+                        <Image src='/img/guccilogo.png' maxW={200} width={windowDimensions.width * 0.4} />
+                        :
+                        <Box
+                            textAlign={"center"}
+                        >
+                            <Heading
+                                fontSize={"1rem"}
+                                color={"black"}
+                            >
+                                Gucci Garden
+                                <br />
+                                Archetypes
+                            </Heading>
+                            <Box height={windowDimensions.height * 0.07} />
+                            <Heading
+                                fontSize={"1rem"}
+                                color={"black"}
+                                onClick={() => {
+                                    setLanguage("eng");
+                                    localStorage.setItem("language", "eng");
+                                    setPreloadFlag.toggle()
+                                }}
+                            >English</Heading>
+                            <Box height={windowDimensions.height * 0.03} />
+                            <Heading
+                                fontSize={"1rem"}
+                                color={"black"}
+                                onClick={() => {
+                                    // @ts-ignore
+                                    setLanguage("chi");
+                                    localStorage.setItem("language", "chi");
+                                    setPreloadFlag.toggle()
+                                }}
+                            >中文</Heading>
+                        </Box>
+                }
+
             </Center>
         </ChakraBox>
     )

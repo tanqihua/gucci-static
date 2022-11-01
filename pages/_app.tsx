@@ -1,14 +1,11 @@
 // pages/_app.js
-import { ChakraProvider } from '@chakra-ui/react'
+import { ChakraProvider, color } from '@chakra-ui/react'
 import "../styles/globals.css";
 // 1. Import the extendTheme function
-import { extendTheme } from '@chakra-ui/react'
-
+import { extendTheme, Box } from '@chakra-ui/react'
 import { ContextProvider } from '../component/context';
-import { useEffect } from 'react';
 
 // 2. Extend the theme to include custom colors, fonts, etc
-import { Global } from "@emotion/react"
 
 function MyApp({ Component, pageProps }: any) {
 
@@ -16,16 +13,43 @@ function MyApp({ Component, pageProps }: any) {
     fonts: {
       heading: "GucciSans-Bold",
       body: "GucciSans",
+    },
+    styles: {
+      global: {
+        body: {
+          bg: "rgb(228, 151, 166)",
+        }
+      }
     }
-  })
-  useEffect(() => {
-    console.log(theme);
   })
 
   return (
     <ContextProvider>
       <ChakraProvider theme={theme}>
-        <Component {...pageProps} />
+        <Box>
+          <Component {...pageProps} />
+          <Box
+            position={"absolute"}
+            zIndex={1000}
+            color={"black"}
+            fontSize={"1vh"}
+            width={"100%"}
+            textAlign={"center"}
+            left="50%"
+            transform={"translateX(-50%)"}
+            height={"2vh"}
+            bottom={"0"}
+            backgroundColor={"rgb(228, 151, 166)"}
+          >
+            <p
+            >
+              ®️ ALL RIGHTS RESERVED BY GUCCI. POWERED BY {" "}
+              <a href="https://conten.tech" target="_blank" style={{ color: "black", textDecoration: "underline" }}>
+                CONTEN.T
+              </a>
+            </p>
+          </Box>
+        </Box>
       </ChakraProvider>
     </ContextProvider>
   )
