@@ -149,6 +149,7 @@ const Preload = (props: Props) => {
                         color={"black"}
                         onClick={() => {
                             setLanguage("eng");
+                            localStorage.setItem("language", "eng");
                             setPreloadFlag.toggle()
                         }}
                     >English</Heading>
@@ -159,6 +160,7 @@ const Preload = (props: Props) => {
                         onClick={() => {
                             // @ts-ignore
                             setLanguage("chi");
+                            localStorage.setItem("language", "chi");
                             setPreloadFlag.toggle()
                         }}
                     >中文</Heading>

@@ -12,7 +12,7 @@ export default function Home() {
             margin={"auto"}
             position="relative"
         >
-            <Innerpage play={"intro"} />
+            <Innerpage play={"room-3"} />
             <Preload toggle={true} />
         </Box>
     )

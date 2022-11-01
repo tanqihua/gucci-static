@@ -1,16 +1,8 @@
 import { Box } from '@chakra-ui/react'
 import Innerpage from '../component/innerpage';
-import { useModal } from '../component/context';
-import { useEffect } from 'react';
+import Preload from '../component/preload';
 export default function Home() {
   // chakra with framer motion
-
-  const { setCurrentAudio } = useModal();
-
-
-  useEffect(() => {
-    setCurrentAudio("room-1")
-  })
 
   return (
     <Box
@@ -20,6 +12,7 @@ export default function Home() {
       position="relative"
     >
       <Innerpage />
+      <Preload />
     </Box>
   )
 }
