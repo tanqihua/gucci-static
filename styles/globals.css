@@ -4,12 +4,31 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+
+  background-color: rgb(228, 151, 166);
 }
+
+@font-face {
+  font-family: "GucciSans-BoldItalic";
+  src: url('../font/EN_GUCCIsans/GucciSans-BoldItalic.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: "GucciSans-Bold";
+  src: url('../font/EN_GUCCIsans/GucciSans-Bold.ttf');
+}
+
+@font-face {
+  font-family: "GucciSans";
+  src: url('../font/EN_GUCCIsans/GucciSans-Book.ttf');
+}
+
 
 a {
   color: inherit;
   text-decoration: none;
 }
+
 
 * {
   box-sizing: border-box;
@@ -19,8 +38,228 @@ a {
   html {
     color-scheme: dark;
   }
+
   body {
     color: white;
     background: black;
   }
+}
+
+
+.progressBar {
+  --bar-bg: white;
+  --seek-before-width: 0;
+  --seek-before-color: black;
+  --knobby: black;
+  --selectedKnobby: black;
+
+  appearance: none;
+  background: var(--bar-bg);
+  ;
+  border-radius: 10px;
+  position: relative;
+  width: 100%;
+  height: 1px;
+  outline: none;
+}
+
+/* progress bar - safari */
+.progressBar::-webkit-slider-runnable-track {
+  background: var(--bar-bg);
+  border-radius: 10px;
+  position: relative;
+  width: 100%;
+  height: 11px;
+  outline: none;
+}
+
+/* progress bar - firefox */
+.progressBar::-moz-range-track {
+  background: var(--bar-bg);
+  ;
+  border-radius: 10px;
+  position: relative;
+  width: 100%;
+  height: 11px;
+  outline: none;
+}
+
+.progressBar::-moz-focus-outer {
+  border: 0;
+}
+
+/* progress bar - chrome and safari */
+.progressBar::before {
+  --seek-before-width: 50;
+  content: '';
+  height: 11px;
+  width: var(--seek-before-width);
+  background-color: var(--seek-before-color);
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  cursor: pointer;
+}
+
+/* progress bar - firefox */
+.progressBar::-moz-range-progress {
+  background-color: var(--seek-before-color);
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+/* knobby - chrome and safari */
+.progressBar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--knobby);
+  cursor: pointer;
+  position: relative;
+  margin: -2px 0 0 0;
+  z-index: 3;
+  box-sizing: border-box;
+}
+
+/* knobby while dragging - chrome and safari */
+.progressBar:active::-webkit-slider-thumb {
+  transform: scale(1.2);
+  background: var(--selectedKnobby);
+}
+
+/* knobby - firefox */
+.progressBar::-moz-range-thumb {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: transparent;
+  background-color: var(--knobby);
+  cursor: pointer;
+  position: relative;
+  z-index: 3;
+  box-sizing: border-box;
+}
+
+/* knobby while dragging - firefox */
+.progressBar:active::-moz-range-thumb {
+  transform: scale(1.2);
+  background: var(--selectedKnobby);
+}
+
+.bold {
+  font-family: 'GucciSans-Bold' !important;
+}
+
+.star {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+}
+
+.star svg {
+  width: 100%;
+  height: 100%;
+}
+
+.star:nth-child(20) {
+  left: 0;
+  top: 0;
+}
+
+.star:nth-child(19) {
+  left: 14%;
+  top: 5%;
+}
+
+.star:nth-child(18) {
+  left: 5%;
+  top: 15%;
+}
+
+.star:nth-child(17) {
+  left: 30%;
+  top: 0;
+}
+
+.star:nth-child(16) {
+  left: 63%;
+  top: 0;
+}
+
+.star:nth-child(15) {
+  left: 79%;
+  top: 4%;
+}
+
+.star:nth-child(14) {
+  left: 87%;
+  top: 17%;
+}
+
+.star:nth-child(13) {
+  left: 5%;
+  top: 50%;
+}
+
+.star:nth-child(12) {
+  left: 0;
+  bottom: 0;
+}
+
+.star:nth-child(11) {
+  left: 30%;
+  bottom: 4%;
+}
+
+.star:nth-child(10) {
+  left: 18%;
+  bottom: 17%;
+}
+
+.star:nth-child(8) {
+  left: 48%;
+  bottom: 6%;
+}
+
+.star:nth-child(7) {
+  left: 68%;
+  bottom: 8%;
+}
+
+.star:nth-child(6) {
+  left: 82%;
+  bottom: 17%;
+}
+
+.star:nth-child(4) {
+  bottom: 40%;
+  left: 93%;
+}
+
+.star:nth-child(3) {
+  left: 92%;
+  top: 0;
+}
+
+.star:nth-child(2) {
+  left: 92%;
+  bottom: 0;
+}
+
+.star:nth-child(1) {
+  display: none;
+}
+
+.star:nth-child(5) {
+  display: none;
+}
+
+.star:nth-child(9) {
+  display: none;
 }
