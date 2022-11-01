@@ -53,7 +53,8 @@ const popupinner = (props: Props) => {
                 backgroundColor={props.popupFlag ? "rgba(0,0,0,0.55)" : ""}
                 transition="all 0.3 s ease-in-out"
                 zIndex={1}
-                pointerEvents={"none"}
+                pointerEvents={props.popupFlag ? "all" : "none"}
+                onClick={() => props.setPopupFlag.toggle()}
             />
             <ChakraBox
                 position={"absolute"}

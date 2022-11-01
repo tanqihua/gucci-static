@@ -7,6 +7,7 @@ import { useModal } from "./context";
 import Header from "./header";
 import Popinner from "./popupinner";
 import Scaner from "./scaner";
+// @ts-ignore
 import Lottie from "lottie-react";
 import JsonLoading from "./lf30_editor_owgxnbds.json";
 type Props = {}
@@ -78,7 +79,7 @@ const Popup = (props: Props) => {
                             height={"100%"}
                             width={"100%"}
                             backgroundColor="rgba(255,255,255,0.4)"
-                        ><Lottie animationData={JsonLoading} /></Box> : ""
+                        ><Lottie style={{ width: "30%" }} animationData={JsonLoading} /></Box> : ""
                     }
 
                     <Scaner />

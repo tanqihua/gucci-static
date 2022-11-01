@@ -36,7 +36,6 @@ const Preload = (props: Props) => {
 
         if (props.toggle) {
             let language = localStorage.getItem("language");
-            console.log("language", language);
             if (language) {
                 setLanguage(language);
             }
@@ -44,22 +43,9 @@ const Preload = (props: Props) => {
                 setLanguage("eng");
             }
 
+
             setPreloadFlag.on()
         }
-
-        // check image loaded
-        const images = document.querySelectorAll('img');
-        let loaded = 0;
-        images.forEach((img) => {
-            img.addEventListener('load', () => {
-                loaded++;
-                console.log(loaded, images.length);
-                if (loaded === images.length) {
-                    setAllLoaded(true);
-                }
-            });
-        }
-        );
     }, [])
 
     if (allLoaded) {
@@ -76,6 +62,7 @@ const Preload = (props: Props) => {
             animate={preloadFlag ? "open" : "closed"}
             pointerEvents={preloadFlag ? "none" : "auto"}
             zIndex={1000}
+            display={props.toggle ? "none" : "block"}
         >
             <Center
                 height={windowDimensions.height * 0.55}
