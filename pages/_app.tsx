@@ -1,5 +1,5 @@
 // pages/_app.js
-import { ChakraProvider, color } from '@chakra-ui/react'
+import { ChakraProvider } from '@chakra-ui/react'
 import "../styles/globals.css";
 // 1. Import the extendTheme function
 import { extendTheme, Box } from '@chakra-ui/react'
@@ -44,9 +44,11 @@ function MyApp({ Component, pageProps }: any) {
             <p
             >
               ®️ ALL RIGHTS RESERVED BY GUCCI. POWERED BY {" "}
-              <a href="https://conten.tech" target="_blank" style={{ color: "black", textDecoration: "underline" }}>
+              <span onClick={() => {
+                window.open("https://conten.tech", "_blank")
+              }} style={{ color: "black", textDecoration: "underline" }}>
                 CONTEN.T
-              </a>
+              </span>
             </p>
           </Box>
         </Box>

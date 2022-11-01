@@ -1,6 +1,9 @@
-import { Box } from '@chakra-ui/react'
+import { Box, Text } from '@chakra-ui/react'
 import Innerpage from '../component/innerpage';
 import Preload from '../component/preload';
+
+// span in chakra ui 
+
 export default function Home() {
   // chakra with framer motion
 
