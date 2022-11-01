@@ -29,7 +29,7 @@ const Preload = (props: Props) => {
     const { windowDimensions, setLanguage } = useModal();
 
     const [allLoaded, setAllLoaded] = React.useState(false);
-
+    const [trigger, setTrigger] = React.useState(props.toggle);
     React.useEffect(() => {
         // @ts-ignore
         window.setPreloadFlag = setPreloadFlag;
@@ -42,6 +42,9 @@ const Preload = (props: Props) => {
             else {
                 setLanguage("eng");
             }
+            setTimeout(() => {
+                setTrigger(false);
+            }, 2000)
 
 
             setPreloadFlag.on()
@@ -62,7 +65,7 @@ const Preload = (props: Props) => {
             animate={preloadFlag ? "open" : "closed"}
             pointerEvents={preloadFlag ? "none" : "auto"}
             zIndex={1000}
-            display={props.toggle ? "none" : "block"}
+            display={trigger ? "none" : "block"}
         >
             <Center
                 height={windowDimensions.height * 0.55}

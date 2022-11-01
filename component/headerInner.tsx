@@ -12,7 +12,6 @@ const Header = (props: Props) => {
     const { windowDimensions, language, currentAudio, setCurrentAudio } = useModal();
     const [typeData, setTypeData] = React.useState(dataEng);
 
-
     useEffect(() => {
         switch (language) {
             case "eng":

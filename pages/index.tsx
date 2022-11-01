@@ -12,7 +12,7 @@ export default function Home() {
       position="relative"
     >
       <Innerpage />
-      <Preload />
+      <Preload toggle={false} />
     </Box>
   )
 }
